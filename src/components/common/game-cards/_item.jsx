@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { transformToLocalDate } from '../../../utils';
+import Rating from '../../ui-kit/rating/rating';
 import Title from '../../ui-kit/title/title';
 
 const CardWrapper = styled.div`
@@ -25,12 +27,6 @@ const MetaInfo = styled.div`
   margin-bottom: 15px;
 `;
 
-const Rating = styled.span`
-  color: gold;
-`;
-
-const Released = styled.span``;
-
 export default function GameCardsItem({ game, handleClick }) {
   const onClick = () => handleClick(game.id);
 
@@ -44,8 +40,7 @@ export default function GameCardsItem({ game, handleClick }) {
       <CardDesriptionWrapper>
         <MetaInfo>
           <Rating>{game.rating}</Rating>
-          <Released>{new Date(game.released)
-            .toLocaleDateString()}</Released>
+          <span>{transformToLocalDate(game.released)}</span>
         </MetaInfo>
 
         <Title size='22'>{game.name}</Title>

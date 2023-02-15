@@ -11,7 +11,7 @@ const GameCardsWrapper = styled.div`
   gap: 25px;
 
   @media ${(props) => props.theme.media.tablet} {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 `;
 

@@ -7,11 +7,12 @@ import { apiClient } from '../services/api/api-client';
 import { loadGamesSuccess, loadGamesFailure, loadGames } from '../store/games';
 import Spinner from '../components/ui-kit/spinner/spinner';
 import SearchField from '../components/ui-kit/search-field/search-field';
-import { debounce } from '../util';
+import { debounce } from '../utils';
 import Filter from '../components/ui-kit/filter/filter';
 import { loadPlatformsSuccess } from '../store/platforms';
 import { useLabels } from '../hooks/use-labels';
 import { configuration } from '../configuration';
+import Note from '../components/ui-kit/note/note';
 
 const HomeWrapper = styled.div`
   margin: 25px 0;
@@ -26,11 +27,6 @@ const FilterWrapper = styled.div`
   @media ${(props) => props.theme.media.tablet} {
     flex-direction: row;
   }
-`;
-
-const Noticed = styled.div`
-  text-align: center;
-  font-size: 18px;
 `;
 
 export default function Home() {
@@ -111,7 +107,7 @@ export default function Home() {
       {games.loading && <Spinner />}
 
       {!games.loading && games.items.length === 0 && (
-        <Noticed>No games for your request</Noticed>
+        <Note>No games for your request</Note>
       )}
     </HomeWrapper>
   );

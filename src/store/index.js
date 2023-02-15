@@ -2,6 +2,7 @@ import { createWrapper } from 'next-redux-wrapper';
 import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import gamesReducer from './games';
+import gameReducer from './game';
 import platformsReducer from './platforms';
 import sagas from './sagas';
 
@@ -11,6 +12,7 @@ export function makeStore() {
   return configureStore({
     reducer: {
       games: gamesReducer,
+      game: gameReducer,
       platforms: platformsReducer
     },
     middleware: [sagaMiddleware]

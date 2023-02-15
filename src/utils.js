@@ -7,3 +7,8 @@ export function debounce(func, timeout = 300) {
     }, timeout);
   };
 }
+
+export function transformToLocalDate(date) {
+  return new Date(date)
+    .toLocaleDateString();
+}

@@ -8,7 +8,7 @@ const Container = styled.main`
 `;
 
 const Header = styled.header`
-  padding: 25px 0;
+  padding: 16px 0;
   border-bottom: 1px solid ${(props) => props.theme.colors.white};
 `;
 
@@ -16,7 +16,7 @@ export default function Layout({ children }) {
   return (
     <Container>
       <Header>
-        <Title>Game Showcase.</Title>
+        <Title size='42'>Game Showcase.</Title>
       </Header>
 
       <div>{children}</div>
