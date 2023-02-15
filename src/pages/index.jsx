@@ -50,7 +50,7 @@ export default function Home() {
       platforms: router.query.platforms,
       ordering: router.query.ordering
     });
-  });
+  }, 1250);
 
   const handlePlatformFilter = (platformID) => {
     search({

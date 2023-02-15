@@ -46,7 +46,8 @@ export default function GameCardsItem({ game, handleClick }) {
         <CardPoster
           loading='lazy'
           src={game.background_image || configuration.mockImage.src}
-          alt={game.name} />
+          alt={game.name}
+        />
       </PosterWrapper>
 
       <CardDesriptionWrapper>

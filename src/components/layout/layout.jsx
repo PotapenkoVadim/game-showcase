@@ -28,7 +28,11 @@ export default function Layout({ children }) {
     <Container>
       <Header>
         <TitleWrapper>
-          <Title onClick={visitHomePage} size='42'>Game Showcase.</Title>
+          <Title
+            onClick={visitHomePage}
+            size='42'>
+            Game Showcase.
+          </Title>
         </TitleWrapper>
       </Header>
 
