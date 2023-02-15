@@ -15,6 +15,7 @@ const Header = styled.header`
 
 const TitleWrapper = styled.div`
   cursor: pointer;
+  color: tomato;
 `;
 
 export default function Layout({ children }) {

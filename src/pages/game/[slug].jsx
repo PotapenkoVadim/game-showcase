@@ -34,6 +34,7 @@ const Description = styled.div`
 `;
 
 const Link = styled.a`
+  color: tomato;
   text-decoration: none;
 
   &:hover {
