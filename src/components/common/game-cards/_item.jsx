@@ -31,6 +31,7 @@ const CardWrapper = styled.div`
   cursor: pointer;
   overflow: hidden;
   border-radius: 6px;
+  box-shadow: 3px 3px 15px black;
 
   &:hover ${CardPoster} {
     transform: scale(1.2);
