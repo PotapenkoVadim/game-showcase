@@ -13,6 +13,10 @@ const Wrapper = styled.div`
   margin: 15px 0 25px;
 `;
 
+const TitleWrapper = styled.div`
+  margin-bottom: 20px;
+`;
+
 const Poster = styled.img`
   width: 100%;
   margin: 15px 0;
@@ -44,13 +48,17 @@ export default function Game() {
     <Wrapper>
       {game.item && (
         <>
-          <Title size='36'>{game.item.name}</Title>
+          <TitleWrapper>
+            <Title size='36'>{game.item.name}</Title>
+          </TitleWrapper>
 
-          <Poster
-            src={game.item.background_image}
-            loading='lazy'
-            alt={game.item.name}
-          />
+          {game.item.background_image && (
+            <Poster
+              src={game.item.background_image}
+              loading='lazy'
+              alt={game.item.name}
+            />
+          )}
 
           <MetaInfo>
             <Rating>{game.item.rating}</Rating>

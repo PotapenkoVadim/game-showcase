@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import Title from '../ui-kit/title/title';
 
@@ -12,11 +13,23 @@ const Header = styled.header`
   border-bottom: 1px solid ${(props) => props.theme.colors.white};
 `;
 
+const TitleWrapper = styled.div`
+  cursor: pointer;
+`;
+
 export default function Layout({ children }) {
+  const router = useRouter();
+
+  const visitHomePage = () => {
+    router.push('/');
+  };
+
   return (
     <Container>
       <Header>
-        <Title size='42'>Game Showcase.</Title>
+        <TitleWrapper>
+          <Title onClick={visitHomePage} size='42'>Game Showcase.</Title>
+        </TitleWrapper>
       </Header>
 
       <div>{children}</div>

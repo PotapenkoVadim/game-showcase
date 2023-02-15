@@ -34,6 +34,7 @@ export default function Filter({
   labels,
   handleChange,
   placeholder,
+  defaultOption,
   initialValue = ''
 }) {
   const [value, setValue] = useState(initialValue);
@@ -53,7 +54,7 @@ export default function Filter({
             <option
               key='all'
               value=''>
-              All
+              {defaultOption}
             </option>
 
             {labels.map((item) => (

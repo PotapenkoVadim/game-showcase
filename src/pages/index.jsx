@@ -86,6 +86,7 @@ export default function Home() {
         />
 
         <Filter
+          defaultOption='All'
           placeholder='Platforms'
           handleChange={handlePlatformFilter}
           initialValue={router.query.platforms}
@@ -93,6 +94,7 @@ export default function Home() {
         />
 
         <Filter
+          defaultOption='None'
           placeholder='Sort by'
           handleChange={handleSortFilter}
           initialValue={router.query.ordering}

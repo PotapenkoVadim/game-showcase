@@ -1,14 +1,8 @@
 import styled from 'styled-components';
+import { configuration } from '../../../configuration';
 import { transformToLocalDate } from '../../../utils';
 import Rating from '../../ui-kit/rating/rating';
 import Title from '../../ui-kit/title/title';
-
-const CardWrapper = styled.div`
-  background: #202020;
-  cursor: pointer;
-  overflow: hidden;
-  border-radius: 6px;
-`;
 
 const CardDesriptionWrapper = styled.div`
   padding: 15px;
@@ -18,6 +12,7 @@ const CardPoster = styled.img`
   width: 100%;
   height: 255px;
   object-fit: cover;
+  transition: all 0.6s ease-out;
 `;
 
 const MetaInfo = styled.div`
@@ -27,15 +22,32 @@ const MetaInfo = styled.div`
   margin-bottom: 15px;
 `;
 
+const PosterWrapper = styled.div`
+  overflow: hidden;
+`;
+
+const CardWrapper = styled.div`
+  background: #202020;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 6px;
+
+  &:hover ${CardPoster} {
+    transform: scale(1.2);
+  }
+`;
+
 export default function GameCardsItem({ game, handleClick }) {
   const onClick = () => handleClick(game.id);
 
   return (
     <CardWrapper onClick={onClick}>
-      <CardPoster
-        loading='lazy'
-        src={game.background_image}
-        alt={game.name} />
+      <PosterWrapper>
+        <CardPoster
+          loading='lazy'
+          src={game.background_image || configuration.mockImage.src}
+          alt={game.name} />
+      </PosterWrapper>
 
       <CardDesriptionWrapper>
         <MetaInfo>
