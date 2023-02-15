@@ -1,12 +1,8 @@
 import { createWrapper } from 'next-redux-wrapper';
 import { configureStore } from '@reduxjs/toolkit';
-import createSagaMiddleware from 'redux-saga';
 import gamesReducer from './games';
 import gameReducer from './game';
 import platformsReducer from './platforms';
-import sagas from './sagas';
-
-const sagaMiddleware = createSagaMiddleware();
 
 export function makeStore() {
   return configureStore({
@@ -14,14 +10,11 @@ export function makeStore() {
       games: gamesReducer,
       game: gameReducer,
       platforms: platformsReducer
-    },
-    middleware: [sagaMiddleware]
+    }
   });
 }
 
 export const store = makeStore();
-
-sagaMiddleware.run(sagas);
 
 export const wrapper = createWrapper(makeStore, {
   serializeState: (state) => JSON.stringify(state),
