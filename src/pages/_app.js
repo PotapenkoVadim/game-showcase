@@ -1,22 +1,55 @@
+import Head from 'next/head';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
-
-const Global = createGlobalStyle`
-  * { padding: 0; margin: 0; box-sizing: border-box; font-family: sans-serif; font-size: 16px; }
-`;
+import { Provider } from 'react-redux';
+import Layout from '../components/layout/layout';
+import { wrapper } from '../store';
 
 const theme = {
+  colors: {
+    main: '#151515',
+    white: '#ffffff'
+  },
   media: {
-    phone: '(max-width: 425px)',
-    tablet: '(max-width: 768px) and (min-width: 425px)'
+    phone: '(min-width: 768px)',
+    tablet: '(min-width: 1024px)',
+    desktop: '(min-width: 1280px)'
   }
 };
 
-export default function App({ Component, pageProps }) {
-  return (
-    <ThemeProvider theme={theme}>
-      <Global />
+const Global = createGlobalStyle`
+  * { padding: 0; margin: 0; box-sizing: border-box; }
+  body {
+    font-family: sans-serif;
+    font-size: 16px;
+    background-color: ${(props) => props.theme.colors.main};
+    color: ${(props) => props.theme.colors.white}
+  }
+`;
 
-      <Component {...pageProps} />
-    </ThemeProvider>
+export default function App({ Component, pageProps }) {
+  const { store, props } = wrapper.useWrappedStore(pageProps);
+
+  return (
+    <>
+      <Head>
+        <title>Game Showcase</title>
+        <meta
+          name='viewport'
+          content='width=device-width, initial-scale=1' />
+        <link
+          rel='icon'
+          href='/favicon.ico' />
+      </Head>
+
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <Global />
+
+          <Layout>
+            <Component {...props} />
+          </Layout>
+        </ThemeProvider>
+      </Provider>
+    </>
   );
 }
