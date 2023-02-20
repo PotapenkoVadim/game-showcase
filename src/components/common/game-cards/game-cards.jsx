@@ -25,7 +25,7 @@ export default function GameCard({ games, onScroll }) {
   useEffect(() => {
     const nextPage = games.currentPage + 1;
 
-    if (inView && !games.loading && nextPage < games.totalPages) {
+    if (inView && !games.loading && nextPage <= games.totalPages) {
       onScroll(games.currentPage + 1);
     }
   }, [inView, games]);

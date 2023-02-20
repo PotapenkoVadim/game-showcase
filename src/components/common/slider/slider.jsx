@@ -31,7 +31,7 @@ export default function Slider({ images }) {
           >
             {images.map((item) => (
               <SwiperSlide key={item.id}>
-                <SliderImage src={item.image} />
+                <SliderImage src={item.image} loading='lazy' />
               </SwiperSlide>
             ))}
           </Swiper>

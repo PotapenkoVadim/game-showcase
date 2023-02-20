@@ -100,7 +100,6 @@ export const getServerSideProps = wrapper.getServerSideProps(
 
       store.dispatch(loadGameSuccess(game));
     } catch (error) {
-      console.log(error);
       store.dispatch(loadGameFailure(error));
     }
 
